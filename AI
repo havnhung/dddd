@@ -1,0 +1,26 @@
+function findBestMove(board):
+     bestMove = NULL
+for each move in board :
+     if current move is better than bestMove
+         bestMove = current move
+return bestMove
+function minimax(board, isMaximizingPlayer):
+    if(CheckStateGame(curMove) == WIN_GAME)
+       return MAX
+    if(CheckStateGame(curMove) == LOSE_GAME)
+        return MIN
+    if( CheckStateGame(curMove) == DRAW_GAME) 
+       return DRAW_VALUE
+     if isMaximizingPlayer :
+         bestVal = -INFINITY 
+         for each move in board :
+            value = minimax(board, false)
+            bestVal = max( bestVal, value) 
+        return bestVal
+ 
+     else :
+        bestVal = +INFINITY 
+        for each move in board :
+             value = minimax(board, true)
+             bestVal = min( bestVal, value) 
+         return bestVal
